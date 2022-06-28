@@ -16,24 +16,40 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//Access url for Admin
 Route::middleware(['auth', 'role:admin'])->group(function () {
+
     Route::get('/user/add', function () {
         return view('user.add');
-    });
+    })->name('user_add');
     Route::get('/user/list', function () {
         return view('user.list');
-    });
-});
+    })->name('user_list');
 
+    Route::get('/category/add', function () {
+        return view('category.add');
+    })->name('category_add');
+    Route::get('/category/list', function () {
+        return view('category.list');
+    })->name('category_list');
+
+    Route::get('/product/add', function () {
+        return view('product.add');
+    })->name('product_add');
+    Route::get('/product/list', function () {
+        return view('product.list');
+    })->name('product_list');
+});
+//Access for Supplier
 Route::middleware(['auth', 'role:fournisseur'])->group(function () {
     Route::get('/entree/add', function () {
         return view('entree.add');
-    });
+    })->name('entry_add');
     Route::get('/entree/list', function () {
         return view('entree.list');
-    });
+    })->name('entry_list');
 });
+//Access
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
