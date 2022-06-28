@@ -52,4 +52,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
+
+    /**
+     * Get the products for the user.
+     *
+     * @return void
+     */
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }
