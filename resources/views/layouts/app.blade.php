@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://bootswatch.com/5/slate/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/5/slate/bootstrap.css">
+    <link rel="stylesheet" href="https://bootswatch.com/5/slate/_variables.scss">
+    <link rel="stylesheet" href="https://bootswatch.com/5/slate/_bootswatch.scss">
+
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <!-- Scripts -->
@@ -19,8 +24,11 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
-        @include('layouts.navigation')
+    @include('layouts.navigation')
+    <div class="container">
+        @yield('content')
+    </div>
+    {{-- <div class="min-h-screen bg-gray-100">
 
         <!-- Page Heading -->
         <header class="bg-white shadow">
@@ -33,7 +41,10 @@
         <main>
             {{ $slot }}
         </main>
-    </div>
+    </div> --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
