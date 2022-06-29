@@ -17,7 +17,7 @@
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false">User</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{ route('user_add') }}">Adding users</a>
+                        <a class="dropdown-item" href="{{ route('register') }}">Adding users</a>
                         <a class="dropdown-item" href="{{ route('user_list') }}">List of users</a>
                     </div>
                 </li>
@@ -55,21 +55,23 @@
                     </div>
                 </li>
             </ul>
-            <form method="POST" class="d-flex" action="{{ route('logout') }}">
-                @csrf
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                            aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
+            @auth
+                <form method="POST" class="d-flex" action="{{ route('logout') }}">
+                    @csrf
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                                aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
                             this.closest('form').submit();">
-                                Log out</a>
-                        </div>
-                    </li>
-                </ul>
-            </form>
+                                    Log out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            @endauth
         </div>
     </div>
 </nav>

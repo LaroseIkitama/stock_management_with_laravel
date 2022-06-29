@@ -21,13 +21,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/form', function () {
+    return view('partials.form');
+});
 //Access url for Admin
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::prefix('user')->group(function () {
 
-        Route::get('/add', [UserController::class, 'create'])->name('user_add');
+        Route::get('/add', [UserController::class, 'index'])->name('user_add');
         Route::get('/list', [UserController::class, 'show'])->name('user_list');
+        Route::get('/{user}/edit', [UserController::class, 'edit'])->name('user_edit');
+        Route::delete('/{user}/delete', [UserController::class, 'delete'])->name('user_delete');
+        Route::put('/{user}/update', [UserController::class, 'update'])->name('user_update');
     });
     Route::prefix('category')->group(function () {
 
