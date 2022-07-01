@@ -25,7 +25,7 @@ Route::get('/form', function () {
     return view('partials.form');
 });
 //Access url for Admin
-Route::middleware(['auth', 'role:admin'])->group(function () {
+Route::middleware(['auth', 'role:ADMIN'])->group(function () {
 
     Route::prefix('user')->group(function () {
 
