@@ -46,7 +46,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
     Route::prefix('product')->group(function () {
 
-        Route::get('/add', [ProductController::class, 'create'])->name('product_add');
+        Route::get('/add', [ProductController::class, 'index'])->name('product_add');
+        Route::post('/add', [ProductController::class, 'store'])->name('product_store');
         Route::get('/list', [ProductController::class, 'show'])->name('product_list');
     });
 });
