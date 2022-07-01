@@ -30,8 +30,8 @@
                 <label for="category" class="form-label mt-4">Select the category</label>
                 <select class="form-select" name="category" id="category">
                     <option value="" disabled selected>Choose the category</option>
-                    @forelse ($categories as $categorie)
-                        <option value="{{ $categorie->id }}">{{ $categorie->name }}</option>
+                    @forelse ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @empty
                         <h5>!!! NO CATEGORY RECORDED IN THE DATABASE !!!</h5>
                     @endforelse

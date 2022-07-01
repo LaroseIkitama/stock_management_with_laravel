@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('description');
             $table->integer('stock')->default(0);
-            $table->foreignId('categorys_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
