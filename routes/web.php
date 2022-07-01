@@ -37,8 +37,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
     Route::prefix('category')->group(function () {
 
-        Route::get('/add', [CategoryController::class, 'create'])->name('category_add');
+        Route::get('/add', [CategoryController::class, 'index'])->name('category_add');
         Route::get('/list', [CategoryController::class, 'show'])->name('category_list');
+        Route::post('/add', [CategoryController::class, 'store'])->name('category_store');
+        Route::get('/{category}/edit', [CategoryController::class, 'edit'])->name('category_edit');
+        Route::delete('/{category}/delete', [CategoryController::class, 'delete'])->name('category_delete');
+        Route::put('/{category}/update', [CategoryController::class, 'update'])->name('category_update');
     });
     Route::prefix('product')->group(function () {
 

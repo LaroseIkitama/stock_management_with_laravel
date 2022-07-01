@@ -49,6 +49,11 @@
                     </td>
                 </tr>
                 @empty
+                    <div class="alert alert-warning">
+                        <ul>
+                            <li> !!! NO USER RECORDED IN THE DATABASE !!!</li>
+                        </ul>
+                    </div>
                 @endforelse
 
             </tbody>
