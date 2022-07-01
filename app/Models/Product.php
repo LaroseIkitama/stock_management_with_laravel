@@ -9,6 +9,12 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'description',
+        'stock',
+        'category_id',
+        'user_id',
+    ];
     /**
      * Get the user that owns the product.
      *

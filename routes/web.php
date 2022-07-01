@@ -49,6 +49,10 @@ Route::middleware(['auth', 'role:ADMIN'])->group(function () {
         Route::get('/add', [ProductController::class, 'index'])->name('product_add');
         Route::post('/add', [ProductController::class, 'store'])->name('product_store');
         Route::get('/list', [ProductController::class, 'show'])->name('product_list');
+
+        Route::get('/{product}/edit', [ProductController::class, 'edit'])->name('product_edit');
+        Route::delete('/{product}/delete', [ProductController::class, 'delete'])->name('product_delete');
+        Route::put('/{product}/update', [ProductController::class, 'update'])->name('product_update');
     });
 });
 //Access for Supplier

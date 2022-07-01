@@ -1,10 +1,11 @@
 @extends('layouts.app')
 @section('content')
 
-    <form method="POST" action="{{ route('product_store') }}">
+    <form method="POST" action="{{ route('product_update', $product->id) }}">
+        @method('PUT')
         @csrf
         <fieldset>
-            <legend>Adding the product</legend>
+            <legend>Edit the product</legend>
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -18,19 +19,19 @@
             <div class="form-group mb-2">
                 <label for="description" class="form-label mt-4">Description of product</label>
                 <input name="description" type="text" class="form-control" id="description"
-                    placeholder="Enter the product description" value="{{ old('description') }}" required>
+                    placeholder="Enter the product description" value="{{ $product->description }}" required>
             </div>
             <!--Stock-->
             <div class="form-group mb-2">
                 <label for="stock" class="form-label mt-4">Stock of product</label>
                 <input name="stock" type="number" class="form-control" id="stock"
-                    placeholder="Enter the product stock" value="{{ old('stock') }}" min="0" required>
+                    placeholder="Enter the product stock" value="{{ $product->stock }}" min="0" required>
             </div>
             <!--Category select -->
             <div class="form-group mb-3">
                 <label for="category_id" class="form-label mt-4">Select the category</label>
                 <select class="form-select" name="category_id" id="category_id">
-                    <option value="" disabled selected>Choose the category</option>
+                    <option value="{{ $product->category_id }}"  selected>Choose the category</option>
                     @forelse ($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @empty
@@ -38,7 +39,7 @@
                     @endforelse
                 </select>
             </div>
-            <input name="user_id" type="hidden" value="{{ Auth::user()->id }}">
+            <input name="user_id" type="hidden" value="{{ $product->user_id }}">
             <button type="submit" class="btn btn-success">REGISTER</button>
         </fieldset>
     </form>
