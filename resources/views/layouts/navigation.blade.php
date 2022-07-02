@@ -48,10 +48,10 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                        aria-haspopup="true" aria-expanded="false">Outing</a>
+                        aria-haspopup="true" aria-expanded="false">Output</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{ route('outing_add') }}">Adding outings</a>
-                        <a class="dropdown-item" href="{{ route('outing_list') }}">List of outings</a>
+                        <a class="dropdown-item" href="{{ route('output_add') }}">Adding outputs</a>
+                        <a class="dropdown-item" href="{{ route('output_list') }}">List of outputs</a>
                     </div>
                 </li>
             </ul>

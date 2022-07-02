@@ -44,4 +44,14 @@ class Product extends Model
     {
         return $this->hasMany(Entry::class);
     }
+
+    /**
+     * Get the outputs for the product
+     *
+     * @return void
+     */
+    public function outputs()
+    {
+        return $this->hasMany(Output::class);
+    }
 }

@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EntryController;
-use App\Http\Controllers\OutingController;
+use App\Http\Controllers\OutputController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -69,9 +69,14 @@ Route::middleware(['auth', 'role:SUPPLIER'])->group(function () {
 });
 //Access for SELLER
 Route::middleware(['auth', 'role:SELLER'])->group(function () {
-    Route::prefix('outing')->group(function () {
-        Route::get('/add', [OutingController::class, 'create'])->name('outing_add');
-        Route::get('/list', [OutingController::class, 'show'])->name('outing_list');
+    Route::prefix('output')->group(function () {
+        Route::get('/add', [OutputController::class, 'index'])->name('output_add');
+        Route::post('/add', [OutputController::class, 'store'])->name('output_store');
+        Route::get('/list', [OutputController::class, 'show'])->name('output_list');
+
+        Route::get('/{output}/edit', [OutputController::class, 'edit'])->name('output_edit');
+        Route::delete('/{output}/delete', [OutputController::class, 'delete'])->name('output_delete');
+        Route::put('/{output}/update', [OutputController::class, 'update'])->name('output_update');
     });
 });
 
