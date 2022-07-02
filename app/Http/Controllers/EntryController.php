@@ -111,6 +111,7 @@ class EntryController extends Controller
     public function show()
     {
         $entries = Entry::all();
-        return view('entry.list', ['entries' => $entries]);
+        $products = Product::all();
+        return view('entry.list', ['entries' => $entries, 'products' => $products]);
     }
 }

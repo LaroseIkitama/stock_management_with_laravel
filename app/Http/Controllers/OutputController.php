@@ -111,6 +111,7 @@ class OutputController extends Controller
     public function show()
     {
         $outputs = Output::all();
-        return view('output.list', ['outputs' => $outputs]);
+        $products = Product::all();
+        return view('output.list', ['outputs' => $outputs, 'products' => $products]);
     }
 }

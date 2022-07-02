@@ -20,7 +20,12 @@
                         <th scope="row">{{ $entry->id }}</th>
                         <td>{{ $entry->quantity }}</td>
                         <td>{{ $entry->price }}</td>
-                        <td>{{ $entry->product_id }}</td>
+                        @forelse ($products as $product)
+                            @if ($product->id === $entry->product_id)
+                                <td>{{ $product->description }}</td>
+                            @endif
+                        @empty
+                        @endforelse
                         <td>{{ $entry->created_at }}</td>
                         <td>
                             <form action="{{ route('entry_delete', ['entry' => $entry->id]) }}" method="POST">

@@ -20,7 +20,12 @@
                         <th scope="row">{{ $output->id }}</th>
                         <td>{{ $output->quantity }}</td>
                         <td>{{ $output->price }}</td>
-                        <td>{{ $output->product_id }}</td>
+                        @forelse ($products as $product)
+                            @if ($product->id === $output->product_id)
+                                <td>{{ $product->description }}</td>
+                            @endif
+                        @empty
+                        @endforelse
                         <td>{{ $output->created_at }}</td>
                         <td>
                             <form action="{{ route('output_delete', ['output' => $output->id]) }}" method="POST">
@@ -36,7 +41,7 @@
                 @empty
                     <div class="alert alert-warning">
                         <ul>
-                            <li> !!! NO PRODUCT RECORDED IN THE DATABASE !!!</li>
+                            <li> !!! NO OUTPUT RECORDED IN THE DATABASE !!!</li>
                         </ul>
                     </div>
                 @endforelse

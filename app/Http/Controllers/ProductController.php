@@ -94,6 +94,8 @@ class ProductController extends Controller
     public function show()
     {
         $products = Product::all();
-        return view('product.list', ['products' => $products]);
+        $categories = Category::all();
+        $users = User::all();
+        return view('product.list', ['products' => $products, 'categories' => $categories, 'users' => $users]);
     }
 }

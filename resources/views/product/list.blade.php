@@ -20,8 +20,19 @@
                         <th scope="row">{{ $product->id }}</th>
                         <td>{{ $product->description }}</td>
                         <td>{{ $product->stock }}</td>
-                        <td>{{ $product->category_id }}</td>
-                        <td>{{ $product->user_id }}</td>
+                        @forelse ($categories as $category)
+                            @if ($product->category_id === $category->id)
+                                <td>{{ $category->name }}</td>
+                            @endif
+                        @empty
+                        @endforelse
+                        @forelse ($users as $user)
+                            @if ($product->user_id === $user->id)
+                                <td>{{ $user->name }}</td>
+                            @endif
+                        @empty
+                        @endforelse
+
                         <td>
                             <form action="{{ route('product_delete', ['product' => $product->id]) }}" method="POST">
                                 <a href="{{ route('product_edit', ['product' => $product->id]) }}">
