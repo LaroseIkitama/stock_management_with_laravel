@@ -1,4 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+    {{-- {{ dd(Auth::user()->roles) }} --}}
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ route('dashboard') }}">AppStock</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"

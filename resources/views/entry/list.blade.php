@@ -41,7 +41,7 @@
                 @empty
                     <div class="alert alert-warning">
                         <ul>
-                            <li> !!! NO PRODUCT RECORDED IN THE DATABASE !!!</li>
+                            <li> !!! NO ENTRY RECORDED IN THE DATABASE !!!</li>
                         </ul>
                     </div>
                 @endforelse

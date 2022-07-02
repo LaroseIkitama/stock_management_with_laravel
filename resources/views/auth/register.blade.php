@@ -44,10 +44,10 @@
                         <div class="row mt-3">
 
                             <div class="col">
-                                <a href="{{ route('login') }}">
+                                {{-- <a href="{{ route('login') }}">
                                     <button type="button" class="btn btn-outline-light">
                                         {{ __('Already registered?') }}</button>
-                                </a>
+                                </a> --}}
                             </div>
                             <div class="col-3">
 
