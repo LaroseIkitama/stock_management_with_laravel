@@ -19,8 +19,9 @@ class EntryController extends Controller
         return view('entry.add', ['products' => $products]);
     }
 
+
     /**
-     * s
+     * Undocumented function
      *
      * @param Entry $entry
      * @return void
@@ -28,9 +29,8 @@ class EntryController extends Controller
     public function edit(Entry $entry)
     {
         $products = Product::all();
-        return view('entry.edit', ['entry' => $entry, 'products' => $products]);
+        return view('entry.edit', ['products' => $products, 'entry' => $entry]);
     }
-
     /**
      * Undocumented function
      *
@@ -69,9 +69,26 @@ class EntryController extends Controller
      */
     public function update(Request $request, Entry $entry)
     {
-        $entry->quantity = $request->quantity;
-        $entry->price = $request->price;
         $entry->product_id = $request->product_id;
+
+        $product = Product::find($request->product_id);
+
+        if ($entry->quantity < $request->quantity) {
+            $product->stock -= ($request->quantity - $entry->quantity);
+            $product->stock += $request->quantity;
+        }
+
+        if ($entry->quantity > $request->quantity) {
+            $product->stock -= $entry->quantity;
+            $product->stock += $request->quantity;
+        }
+
+        $entry->price = $request->price;
+        $entry->quantity = $request->quantity;
+        $product->save();
+        $entry->save();
+
+        return redirect()->route('entry_list');
     }
 
     /**

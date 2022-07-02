@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-    <form method="POST" action="{{ route('entry_store') }}">
+    <form method="POST" action="{{ route('entry_update', $entry->id) }}">
         @method('PUT')
         @csrf
         <fieldset>
