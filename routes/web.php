@@ -5,6 +5,7 @@ use App\Http\Controllers\EntryController;
 use App\Http\Controllers\OutingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Models\Entry;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,8 +59,13 @@ Route::middleware(['auth', 'role:ADMIN'])->group(function () {
 //Access for Supplier
 Route::middleware(['auth', 'role:SUPPLIER'])->group(function () {
     Route::prefix('entry')->group(function () {
-        Route::get('/add', [EntryController::class, 'create'])->name('entry_add');
+        Route::get('/add', [EntryController::class, 'index'])->name('entry_add');
+        Route::post('/add', [EntryController::class, 'store'])->name('entry_store');
         Route::get('/list', [EntryController::class, 'show'])->name('entry_list');
+
+        Route::get('/{entry}/edit', [Entry::class, 'edit'])->name('entry_edit');
+        Route::delete('/{entry}/delete', [Entry::class, 'delete'])->name('entry_delete');
+        Route::put('/{entry}/update', [Entry::class, 'update'])->name('entry_update');
     });
 });
 //Access for SELLER

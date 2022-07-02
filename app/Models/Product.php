@@ -34,4 +34,14 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    /**
+     * Get the entries for the product
+     *
+     * @return void
+     */
+    public function entries()
+    {
+        return $this->hasMany(Entry::class);
+    }
 }
