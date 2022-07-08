@@ -24,7 +24,8 @@
 </head>
 
 <body class="font-sans antialiased">
-    @include('layouts.navigation')
+    @yield('navigation_bar')
+    {{-- @include('layouts.navigation') --}}
     <div class="container">
         @yield('content')
     </div>

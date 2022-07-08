@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('navigation_bar')
+    @include('layouts.navigation')
+@endsection
 @section('content')
     <h1>List User</h1>
     <table class="table table-hover">

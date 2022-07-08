@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('navigation_bar')
+    @include('layouts.navigation')
+@endsection
 @section('content')
     <fieldset>
         <legend>List of categories</legend>

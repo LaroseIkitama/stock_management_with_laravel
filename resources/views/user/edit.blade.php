@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('navigation_bar')
+    @include('layouts.navigation')
+@endsection
 @section('content')
     <form method="POST" action="{{ route('user_update', $user->id) }}">
         @method('PUT')

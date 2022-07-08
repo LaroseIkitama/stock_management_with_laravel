@@ -1,1 +1,0 @@
-$table->string('name')->unique();

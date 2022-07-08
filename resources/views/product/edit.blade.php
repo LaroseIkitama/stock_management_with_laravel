@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('navigation_bar')
+    @include('layouts.navigation')
+@endsection
 @section('content')
 
     <form method="POST" action="{{ route('product_update', $product->id) }}">
@@ -31,7 +34,7 @@
             <div class="form-group mb-3">
                 <label for="category_id" class="form-label mt-4">Select the category</label>
                 <select class="form-select" name="category_id" id="category_id">
-                    <option value="{{ $product->category_id }}"  selected>Choose the category</option>
+                    <option value="{{ $product->category_id }}" selected>Choose the category</option>
                     @forelse ($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @empty
