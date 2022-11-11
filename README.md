@@ -1,6 +1,6 @@
 
 #  AppStock
-Application de gestion de stock de produit d'un magasin fait en Laravel 8
+Application de gestion de stock de produit d'un magasin fait en Laravel 8.
 Gestion de l'Authentification  avec Laravel Breeze et l'Autorisation avec les Gates.
 
 ## Authors
