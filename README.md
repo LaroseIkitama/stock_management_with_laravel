@@ -8,16 +8,6 @@ Authentication was managed with Laravel Breeze and Authorization with Gates.
 ## Authors
 
 - [@LaroseIkitama](https://www.github.com/LaroseIkitama)
-
-
-## Installation
-
-Install my-project with 
-
-```bash
-  git clone https://github.com/LaroseIkitama/stock_management_with_laravel.git
-  cd stock_management_with_laravel
-```
     
 ## Database
 
