@@ -1,18 +1,50 @@
 
-#  AppStock
-Application de gestion de stock de produit d'un magasin fait en Laravel 8.
-Gestion de l'Authentification  avec Laravel Breeze et l'Autorisation avec les Gates.
+# Product Stock Management
+
+This repository contains a project to manage the stock of products of a store with product inputs and outputs.
+Realised with Laravel 8 and Bootstrap 5.
+Authentication was managed with Laravel Breeze and Authorization with Gates.
 
 ## Authors
 
-- [@LaroseIkitama](https://github.com/LaroseIkitama)
+- [@LaroseIkitama](https://www.github.com/LaroseIkitama)
 
 
+## Installation
+
+Install my-project with 
+
+```bash
+  git clone https://github.com/LaroseIkitama/stock_management_with_laravel.git
+  cd stock_management_with_laravel
+```
+    
+## Database
+
+### :database-schema: Database schema
+
+![gestion stock](https://user-images.githubusercontent.com/98411494/210176961-c923b580-b208-4401-9336-bb2398183f03.png)
 ## Demo
-![log in](https://user-images.githubusercontent.com/98411494/201359037-e01dfd48-74a8-4eab-862b-e88789a8d14a.PNG)
 
-![add user](https://user-images.githubusercontent.com/98411494/201359021-fe9ebb22-b7c0-436d-b0f7-4524cdc1abd1.PNG)
+![1](https://user-images.githubusercontent.com/98411494/210177072-b75eb020-4a84-4a9d-bd5e-95ace6317c1a.png)
+![2](https://user-images.githubusercontent.com/98411494/210177079-6e41a8aa-0658-421b-8e09-b2d55df4f4bc.png)
+![3](https://user-images.githubusercontent.com/98411494/210177086-016dc5e0-b1aa-4e2f-a9e2-80a66a342c1d.png)
 
-![list user](https://user-images.githubusercontent.com/98411494/201359032-326396cb-3d23-4311-ba3c-66e03c5bb7e0.PNG)
+
+## Features
 
 
+- Seller-app [Output management]
+    - home page
+    - OUTPUTS CRUD
+
+- Supplier-app [Entry management]
+    - home page
+    - ENTRIES CRUD
+
+- Admin-app 
+    - USERS CRUD 
+    - CATEGORIES CRUD 
+    - PRODUCTS CRUD
+    - ENTRIES CRUD
+    - OUTPUTS CRUD
